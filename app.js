@@ -11,16 +11,10 @@ const observable = new Observable((subscriber) => {
   subscriber.error(new Error("Something bad happen"));
 });
 
-observable.subscribe({
-  next(value) {
-    console.log(`Got a value: ${value}`);
-  },
-  complete() {
-    console.log("Observable is complete. Don't expect any more values.");
-  },
-  error(err) {
-    console.error("Bad Thing!", err);
-  },
-});
+observable.subscribe(
+  (value) => console.log("Next value:", value), // next
+  (err) => console.error("Bad Thing", err), //error
+  () => console.log("Complete") //completion
+);
 
 observable;
