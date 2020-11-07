@@ -16,14 +16,14 @@ const observable = new Observable((subscriber) => {
 
 observable.subscribe(
   (value) => console.log("Next value:", value), // next
-  (err) => console.error("Bad Thing", err), //error
-  () => console.log("Complete") //completion
+  (err) => console.error("Bad Thing", err), // error
+  () => console.log("Complete") // completion
 );
 
 observable.subscribe(
   (value) => console.log("From 2nd subscribe", value), // next
-  (err) => console.error("Bad Thing", err), //error
-  () => console.log("Complete") //completion
+  (err) => console.error("Bad Thing", err), // error
+  () => console.log("Complete") // completion
 );
 
 new Observable(() => {});
