@@ -16,6 +16,15 @@ const observable = fromEvent(input, "input").pipe(
   })
 );
 
+observable.subscribe({
+  next(value) {
+    console.log(`Your value is: ${value}`);
+  },
+  error(err) {
+    console.error("Bad Thing Happen!!", err.message);
+  },
+});
+
 observable;
 
 // const input = document.querySelector("input");
