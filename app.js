@@ -1,16 +1,26 @@
-const input = document.querySelector("input");
+const { fromEvent } = Rx;
 
-input.addEventListener("input", (event) => {
-  let text = event.target.value;
-  text = parseInt(text);
+const input = document.createElement("input");
+const container = document.querySelector(".container");
+container.appendChild(input);
 
-  if (isNaN(text)) {
-    throw new Error("You must enter a number.");
-  }
+const observable = fromEvent(input, "input");
 
-  logValue(text);
-});
+observable;
 
-const logValue = (value) => {
-  console.log(`Your value: ${value}`);
-};
+// const input = document.querySelector("input");
+
+// input.addEventListener("input", (event) => {
+//   let text = event.target.value;
+//   text = parseInt(text);
+
+//   if (isNaN(text)) {
+//     throw new Error("You must enter a number.");
+//   }
+
+//   logValue(text);
+// });
+
+// const logValue = (value) => {
+//   console.log(`Your value: ${value}`);
+// };
